@@ -1,0 +1,8 @@
+#pragma once
+#ifndef __ELYSIUMOS_NONESSENTIAL_SYSTEM_PARAMETERS_H
+#define __ELYSIUMOS_NONESSENTIAL_SYSTEM_PARAMETERS_H
+
+// What a bad boi...
+void rylandDriverEntry(void);
+
+#endif//__ELYSIUMOS_NONESSENTIAL_SYSTEM_PARAMETERS_H
