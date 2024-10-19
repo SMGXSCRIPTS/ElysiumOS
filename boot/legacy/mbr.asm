@@ -11,7 +11,7 @@ _start:
     mov ds, ax
     mov es, ax
     mov ss, ax
-    mov bp, 0x7BFF ;bad idea but fuck it
+    mov bp, 0x7C00 ;bad idea but fuck it
     mov sp, bp
     sti
     
@@ -29,17 +29,23 @@ _start:
 
 [bits 16]
 enableA20:
-    pusha
-    mov al, 0xD1
-    out 0x64, al
-    mov al, 0x02
-    out 0x60, al
-    popa
+    push ax
+
+    in al, 0x92
+    or al, 0x02
+    out 0x92, al
+
+    ;mov al, 0xD1
+    ;out 0x64, al
+    ;mov al, 0x02
+    ;out 0x60, al
+
+    pop ax
     ret
 
 loadKernel:
     mov bx, KERNEL_MEMORY_OFFSET
-    mov dh, 0x20
+    mov dh, 0x40
     mov dl, [BOOT_DRIVE]
     call diskLoad
     mov bx, KERNEL_LOADED_MSG
