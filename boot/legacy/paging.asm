@@ -7,11 +7,11 @@ setupPaging:
     mov edi, PAGE_TABLE_ENTRIES
     mov cr3, edi
 
-    mov dword [edi], 0x2003
+    mov dword [edi], 0x00002003
     add edi, 0x00001000
-    mov dword [edi], 0x3003
+    mov dword [edi], 0x00003003
     add edi, 0x00001000
-    mov dword [edi], 0x4003
+    mov dword [edi], 0x00004003
     add edi, 0x00001000
 
     mov ebx, 0x00000003
