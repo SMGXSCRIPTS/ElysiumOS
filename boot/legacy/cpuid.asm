@@ -34,7 +34,7 @@ checkFeatures:
     ret
 
 unsupportedCPU:
-    mov rsi, CPU_NOT_SUPPORTED_MESSAGE
+    mov esi, CPU_NOT_SUPPORTED_MESSAGE
     call print32
     hlt
 
