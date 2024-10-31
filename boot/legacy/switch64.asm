@@ -20,6 +20,9 @@ switch64:
     call gdtEdit
     call activateSSE
 
+    mov rbp, 0x0000000000007C00
+    mov rsp, rbp
+
     popa
     jmp CODE_SEG:beginLong
 
