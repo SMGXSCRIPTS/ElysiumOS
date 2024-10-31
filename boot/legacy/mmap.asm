@@ -18,7 +18,7 @@ memoryMapLoop:
     je memoryMapDone
 
     add di, 0x0018
-    add [MEMORY_REGION_COUNT], byte 0x01
+    add byte [MEMORY_REGION_COUNT], 0x01
     jmp memoryMapLoop
 
 memoryMapDone:
