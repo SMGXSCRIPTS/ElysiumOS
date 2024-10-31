@@ -4,7 +4,7 @@
 KERNEL_OFFSET equ 0x8000
 BOOT_DRIVE    equ 0x5001
 
-_start:
+__elysiumBootloaderEntry:
     mov [BOOT_DRIVE], dl
 
     cli
