@@ -27,8 +27,8 @@ gdtDesc:
     dd gdtStart
 
 gdtModify:
-    mov [gdtCode + 0x06], byte 0xAF
-    mov [gdtData + 0x06], byte 0xAF
+    mov byte [gdtCode + 0x06], 0xAF
+    mov byte [gdtData + 0x06], 0xAF
     ret
 
 CODE_SEG equ gdtCode - gdtStart
