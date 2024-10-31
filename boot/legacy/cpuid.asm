@@ -18,24 +18,16 @@ checkCPUID:
     xor eax, ecx
     jz unsupportedCPU
 
-    call checkLongMode
-    call checkSSE
+    call checkFeatures
     popa
     ret
 
-checkLongMode:
+checkFeatures:
     pusha
     mov eax, 0x80000001
     cpuid
     test edx, 0x10000000
     jz unsupportedCPU
-    popa
-    ret
-
-checkSSE:
-    pusha
-    mov eax, 0x80000001
-    cpuid
     test edx, 0x01000000
     jz unsupportedCPU
     popa
