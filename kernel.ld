@@ -13,5 +13,5 @@ SECTIONS
     .data         :               { *(.data) }
     .rodata       :               { *(.rodata) }
     .bss          :               { *(.bss) }
-    .kernel_end   : ALIGN(0x1000) { *(.kernel_end) }
+    .kernel_end   : ALIGN(0x1000) { *(.kernel_end) __elysium_kernel_end_symbol = . }
 }
