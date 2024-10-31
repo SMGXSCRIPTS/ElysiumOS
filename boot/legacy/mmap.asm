@@ -7,7 +7,7 @@ memoryMap:
     pusha
     mov di, MEMORY_REGION_BUFFER
     mov edx, 0x534D4150
-    xor eax, eax
+    xor ebx, ebx
 
 memoryMapLoop:
     mov eax, 0x0000E820
