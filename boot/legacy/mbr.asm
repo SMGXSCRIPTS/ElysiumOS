@@ -49,7 +49,7 @@ loadKernel:
     pusha
     mov bx, KERNEL_OFFSET
     mov dh, 0xFF
-    mov dl, [MEMORY_BOOT_DRIVE]
+    mov dl, byte [MEMORY_BOOT_DRIVE]
     call diskLoad
     popa
     ret
