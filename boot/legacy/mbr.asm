@@ -1,11 +1,11 @@
 [bits 16]
 [org 0x7C00]
 
-KERNEL_OFFSET equ 0x8000
-BOOT_DRIVE    equ 0x5001
+MEMORY_KERNEL_OFFSET equ 0x8000
+MEMORY_BOOT_DRIVE    equ 0x5001
 
 __elysiumBootloaderEntry:
-    mov [BOOT_DRIVE], dl
+    mov byte [MEMORY_BOOT_DRIVE], dl
 
     cli
     xor ax, ax
@@ -49,7 +49,7 @@ loadKernel:
     pusha
     mov bx, KERNEL_OFFSET
     mov dh, 0xFF
-    mov dl, [BOOT_DRIVE]
+    mov dl, [MEMORY_BOOT_DRIVE]
     call diskLoad
     popa
     ret
@@ -59,7 +59,7 @@ beginLong:
     mov rsi, LONG_MODE_ENABLED_MESSAGE
     call print64
     xor rsi, rsi
-    jmp KERNEL_OFFSET
+    jmp MEMORY_KERNEL_OFFSET
 
 LONG_MODE_ENABLED_MESSAGE:
     db "Long Mode Enabled!", 0x00
