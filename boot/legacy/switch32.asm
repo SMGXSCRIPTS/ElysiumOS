@@ -16,7 +16,7 @@ initPM:
     mov fs, ax
     mov gs, ax
 
-    mov ebp, 0x7C00
+    mov ebp, 0x00007C00
     mov esp, ebp
 
     jmp switch64
